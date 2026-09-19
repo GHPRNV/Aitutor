@@ -267,7 +267,7 @@ export const executeCodeFlow = ai.defineFlow(
     const fullCode = `${code}\n\n${testCode}`;
     const response = await ai.generate({
       model: MODELS.primary,
-      tools: ['codeExecution'],
+      config: { codeExecution: true },
       prompt: `Execute this Python code and return the exact output. Do not modify the code. Just run it.\n\n\`\`\`python\n${fullCode}\n\`\`\``,
     });
 
