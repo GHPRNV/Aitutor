@@ -8,9 +8,9 @@ export const ai = genkit({
 
 // Model references
 export const MODELS = {
-  primary: process.env.GEMINI_TEXT_MODEL || 'googleai/gemini-3.5-flash',
-  lite: process.env.GEMINI_LITE_MODEL || 'googleai/gemini-3.5-flash',
-  live: process.env.GEMINI_LIVE_MODEL || 'googleai/gemini-3.5-flash',
+  primary: process.env.GEMINI_TEXT_MODEL || 'googleai/gemini-1.5-flash',
+  lite: process.env.GEMINI_LITE_MODEL || 'googleai/gemini-1.5-flash-8b',
+  live: process.env.GEMINI_LIVE_MODEL || 'googleai/gemini-1.5-flash',
 } as const;
 
 // Model router — picks the right model for the task
