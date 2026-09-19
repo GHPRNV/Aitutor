@@ -1,22 +1,22 @@
 import { genkit } from 'genkit';
-import { googleAI } from '@genkit-ai/google-genai';
+import { googleAI, gemini15Flash, gemini15Pro } from '@genkit-ai/google-genai';
 
 // Initialize Genkit with Google AI plugin
 export const ai = genkit({
   plugins: [googleAI()],
 });
 
-// Model references — configurable via env vars
+// Model references
 export const MODELS = {
-  primary: process.env.GEMINI_TEXT_MODEL || 'googleai/gemini-1.5-flash',
-  lite: process.env.GEMINI_LITE_MODEL || 'googleai/gemini-1.5-flash-8b',
-  live: process.env.GEMINI_LIVE_MODEL || 'googleai/gemini-2.5-flash',
+  primary: process.env.GEMINI_TEXT_MODEL || 'googleai/gemini-1.5-flash-latest',
+  lite: process.env.GEMINI_LITE_MODEL || 'googleai/gemini-1.5-flash-8b-latest',
+  live: process.env.GEMINI_LIVE_MODEL || 'googleai/gemini-1.5-pro-latest',
 } as const;
 
 // Model router — picks the right model for the task
 export type TaskComplexity = 'simple' | 'moderate' | 'complex';
 
-export function getModelForTask(complexity: TaskComplexity): string {
+export function getModelForTask(complexity: TaskComplexity) {
   switch (complexity) {
     case 'simple':
       return MODELS.lite;
