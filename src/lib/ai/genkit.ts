@@ -8,9 +8,9 @@ export const ai = genkit({
 
 // Model references — configurable via env vars
 export const MODELS = {
-  primary: process.env.GEMINI_TEXT_MODEL || 'gemini-3.8-flash',
-  lite: process.env.GEMINI_LITE_MODEL || 'gemini-3.5-flash',
-  live: process.env.GEMINI_LIVE_MODEL || 'gemini-3.8-live',
+  primary: process.env.GEMINI_TEXT_MODEL || 'gemini-1.5-flash',
+  lite: process.env.GEMINI_LITE_MODEL || 'gemini-1.5-flash-8b',
+  live: process.env.GEMINI_LIVE_MODEL || 'gemini-2.0-flash-exp',
 } as const;
 
 // Model router — picks the right model for the task
