@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeMentor AI 🧠💻
 
-## Getting Started
+CodeMentor AI is an intelligent, agentic coding tutor built for the RVITM Hackathon 2026. It goes beyond simple code generation by using Socratic dialogue, progressive hints, and live execution tracing to actually *teach* programming concepts.
 
-First, run the development server:
+## 🌟 Features
 
+- **Progressive Hints**: Instead of giving away the answer, CodeMentor offers 5 levels of hints, from conceptual nudges to targeted logic fixes.
+- **Socratic Teaching**: The AI asks guiding questions to help you arrive at the solution yourself.
+- **Live Code Execution**: Features a built-in Python sandbox via Gemini's Code Execution tool. Run your code against visible and hidden test cases instantly.
+- **Execution Tracing**: Visually step through your code to see exactly how variables change line-by-line during runtime.
+- **Misconception Detection**: The system identifies underlying misunderstandings (e.g., confusing index vs. value) and addresses the root concept.
+- **Deterministic Scoring & Dashboard**: A local tracking engine monitors your problem-solving accuracy, current streak, and concept mastery, automatically recommending targeted practice for weak areas.
+
+## 🛠️ Technologies Used
+
+- **Framework**: [Next.js 15.5 LTS](https://nextjs.org/) (React framework for the web)
+- **AI Agent Orchestration**: [Firebase Genkit](https://firebase.google.com/docs/genkit) (v1.42.0)
+- **Language Models**: Google Gemini 3.8 Flash (via `@genkit-ai/google-genai`)
+- **Code Execution**: Native Gemini Python Code Execution Sandbox (No Docker required)
+- **Editor**: [Monaco Editor](https://microsoft.github.io/monaco-editor/) (The engine behind VS Code)
+- **Styling**: Tailwind CSS v4 + Lucide React Icons
+- **Storage**: `localStorage` for rapid, database-free hackathon prototyping (Firebase Auth/Firestore is supported optionally)
+
+## 🚀 How to Run Locally
+
+### 1. Install Dependencies
+Make sure you are in the project root directory (`d:\rvitmhack`) and install the required NPM packages:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configure Environment Variables
+Copy the example environment file to create your local config:
+```bash
+cp .env.example .env.local
+```
+Open `.env.local` and add your Gemini API Key. You can get a free key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+```env
+GOOGLE_API_KEY=your_gemini_api_key_here
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Start the Development Server
+Run the Next.js development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Open the App
+Navigate to [http://localhost:3000](http://localhost:3000) in your web browser. 
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You can start by clicking **"Start Learning"** on the landing page, selecting a problem like **"Find Largest Element"**, and interacting with the AI Tutor in the workspace!
