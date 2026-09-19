@@ -2,20 +2,15 @@
 
 import Link from 'next/link';
 import { Brain, Code2, Mic, Target, Sparkles, ArrowRight, BookOpen, Zap, MessageSquare, TrendingUp } from 'lucide-react';
+import ParticleDrift from '@/components/ui/particle-drift';
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background Video */}
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none"
-      >
-        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4" />
-      </video>
+      {/* Particle Drift Background */}
+      <div className="absolute inset-0 w-full h-full z-0 opacity-20 pointer-events-none">
+        <ParticleDrift className="w-full h-full" mode="dark" />
+      </div>
 
       <div className="relative z-10">
       {/* Nav */}
